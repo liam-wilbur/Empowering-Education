@@ -1,0 +1,340 @@
+/* essayFeedback.css - Complete file with all styles */
+
+:root {
+    --yellow-primary: #fcd34d;
+    --yellow-light: #fef3c7;
+    --yellow-dark: #f59e0b;
+    --blue-light: #dbeafe;
+    --purple-light: #ede9fe;
+    --purple-text: #8b5cf6;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f9fafb;
+    color: black;
+  }
+  
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Header Styles */
+  .header {
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 12px 24px;
+  }
+  
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .edu-logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .edu-icon {
+    background-color: #8b5cf6;
+    color: white;
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 18px;
+  }
+  
+  .edu-text {
+    font-weight: bold;
+    margin-left: 8px;
+  }
+  
+  .durham-logo {
+    background-color: #dbeafe;
+    color: #3b82f6;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .header-button {
+    border: 1px solid #e5e7eb;
+    background-color: transparent;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .header-button:hover {
+    background-color: #f9fafb;
+  }
+  
+  /* Banner Styles */
+  .banner {
+    background-color: var(--yellow-primary);
+    padding: 16px 0;
+  }
+  
+  .banner-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .banner-title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+  }
+  
+  /* Main Content Styles */
+  .main-container {
+    max-width: 100%;
+  }
+  
+  /* Left and Right Content Styles */
+  .two-column-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    /* gap: 20px;  Space between columns */
+  }
+  
+  @media (min-width: 768px) {
+    .two-column-container {
+      grid-template-columns: 1fr 1fr; /* Two columns on larger screens */
+    }
+  }
+  
+  .column-container {
+    /* Identical styling for both columns */
+    background-color: white;
+    height: 100%; /* Ensure both containers have the same height */
+    box-sizing: border-box;
+    padding: 15px;
+  }
+  
+  /* Input Section Styles - Three Distinct Containers */
+  .input-section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Title Container */
+  .input-container-title {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  /* Essay Container */
+  .input-container-essay {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    flex: 1; /* Takes the remaining space */
+    /* margin-bottom: 15px; */
+  }
+  
+  /* Button Container */
+  .input-actions {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 8px;
+  }
+  
+  /* Input label styling */
+  .input-label {
+    font-weight: 500;
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 8px;
+  }
+  
+  /* Title input styling */
+  .title-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+  }
+  
+  .title-input:focus {
+    border-color: var(--purple-text);
+    box-shadow: 0 0 0 2px var(--purple-light);
+  }
+  
+  /* Essay input styling */
+  .essay-input {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    padding: 10px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: vertical;
+    outline: none;
+    font-family: inherit;
+    box-sizing: border-box;
+  }
+  
+  .essay-input:focus {
+    border-color: var(--purple-text);
+    box-shadow: 0 0 0 2px var(--purple-light);
+  }
+  
+  /* Button styling */
+  .generate-button {
+    background-color: var(--purple-text);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%; /* Make button fill the container width */
+    max-width: 250px; /* Controlled maximum width */
+  }
+  
+  .generate-button:hover:not(:disabled) {
+    background-color: #7c3aed;
+  }
+  
+  .generate-button:disabled {
+    background-color: #d1d5db;
+    cursor: not-allowed;
+  }
+  
+  .generate-button.generating {
+    background-color: #9ca3af;
+    cursor: wait;
+  }
+  
+  /* Output Section Styles */
+  .output-section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .output-container {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: var(--purple-light);
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .output-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--purple-text);
+    margin: 0;
+  }
+  
+  .download-button {
+    background-color: #4b5563;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .download-button:hover {
+    background-color: #374151;
+  }
+  
+  .feedback-output {
+    padding: 16px;
+    flex: 1;
+    overflow-y: auto;
+    height: calc(100% - 45px); /* Total height minus header height */
+    box-sizing: border-box;
+  }
+  
+  .feedback-content {
+    font-family: inherit;
+    white-space: pre-wrap;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  
+  .feedback-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #9ca3af;
+    text-align: center;
+  }
+  
+  .placeholder-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+  
+  .placeholder-text {
+    font-size: 16px;
+    max-width: 300px;
+  }

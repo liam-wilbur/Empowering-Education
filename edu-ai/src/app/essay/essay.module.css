@@ -1,0 +1,777 @@
+/* 
+ * ESSAY FEEDBACK PAGE STYLES
+ * 
+ * This stylesheet contains all styles for the Essay Feedback Generator page,
+ * organized into logical sections with descriptive comments.
+ */
+
+/* ==========================================
+   1. VARIABLES & BASE STYLES
+   ========================================== */
+
+:root {
+  /* Color palette */
+  --yellow-primary: #fcd34d;
+  --yellow-light: #fef3c7;
+  --yellow-dark: #f59e0b;
+  --blue-light: #dbeafe;
+  --purple-light: #ede9fe;
+  --purple-text: #8b5cf6;
+  
+  /* Neutral colors */
+  --gray-100: #f9fafb;
+  --gray-200: #e5e7eb;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  
+  /* Error colors */
+  --red-100: #fee2e2;
+  --red-700: #b91c1c;
+  
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
+
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, 
+               Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+  background-color: var(--gray-100);
+  /* color: black; */
+}
+
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==========================================
+   2. HEADER STYLES
+   ========================================== */
+
+.header {
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: var(--space-md) var(--space-xl);
+}
+
+.headerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo area */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.eduLogo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.eduIcon {
+  background-color: var(--purple-text);
+  color: white;
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+  font-size: 18px;
+}
+
+.eduText {
+  font-weight: bold;
+  margin-left: var(--space-sm);
+}
+
+.durhamLogo {
+  background-color: var(--blue-light);
+  color: #3b82f6;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Navigation buttons */
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.headerButton {
+  border: 1px solid var(--gray-200);
+  background-color: transparent;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-lg);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.headerButton:hover {
+  background-color: var(--gray-100);
+}
+
+/* ==========================================
+   3. BANNER STYLES
+   ========================================== */
+
+.banner {
+  background-color: var(--yellow-primary);
+  padding: var(--space-lg) 0;
+}
+
+.bannerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.bannerTitle {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+
+/* ==========================================
+   4. MAIN LAYOUT STRUCTURE
+   ========================================== */
+
+.mainContainer {
+  max-width: 100%;
+}
+
+/* Two-column layout */
+.twoColumnContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* two equal‐width columns */                  
+}
+
+/* Responsive adjustment for larger screens */
+@media (min-width: 768px) {
+  .twoColumnContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.columnContainer {
+  background-color: white;
+  min-height: 730px;       /* ← remove this if you want flexible height */
+  box-sizing: border-box;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;         
+}
+
+/* ==========================================
+   5. INPUT SECTION (LEFT COLUMN)
+   ========================================== */
+
+.inputSection {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Title input container */
+.inputContainerTitle {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  margin-bottom: 15px;
+}
+
+/* Title label with info button */
+.titleLabelContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: row; /* Ensure horizontal layout */
+  gap: 8px; /* Space between label and info button */
+  margin-bottom: var(--space-sm);
+}
+
+/* Info button wrapper with tooltip */
+.infoButtonWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.infoButton {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--gray-200);
+  color: var(--gray-600);
+  border: none;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.infoButton:hover {
+  background-color: var(--purple-light);
+  color: var(--purple-text);
+}
+
+.infoIcon {
+  font-style: italic;
+  line-height: 1;
+}
+
+/* Tooltip (no state needed) */
+.tooltip {
+  position: absolute;
+  top: -10px; /* Align with icon */
+  left: 30px; /* Position right of icon */
+  transform: none;
+  background-color: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  width: 280px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  font-size: 14px;
+  color: var(--gray-600);
+  
+  /* Hide by default */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+/* Show on hover */
+.infoButtonWrapper:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip p {
+  margin: 0;
+  margin-bottom: var(--space-xs);
+}
+
+.tooltipExample {
+  font-style: italic;
+  color: var(--purple-text);
+  margin-top: var(--space-sm);
+}
+
+/* Essay text input container */
+.inputContainerEssay {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  flex: 1; /* Takes the remaining space */
+  max-height: 400px; /* Set a fixed maximum height */
+  overflow: hidden; /* Hide overflow to contain the textarea */
+}
+
+/* Enhanced warning tooltip styling */
+.tooltipWarning {
+  display: flex;
+  align-items: center;
+  color: #b45309; /* Amber/orange text for warnings */
+  font-weight: 500;
+  margin-bottom: var(--space-sm);
+  font-size: 15px;
+}
+
+.warningIcon {
+  flex-shrink: 0;
+  margin-right: var(--space-xs);
+  font-size: 16px;
+}
+
+.tooltipReason {
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.tooltipList {
+  margin: var(--space-xs) 0;
+  padding-left: 24px;
+  font-size: 13px;
+  list-style-type: disc;
+}
+
+.tooltipList li {
+  margin-bottom: 4px;
+}
+
+.tooltipTip {
+  margin-top: var(--space-sm);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--gray-600);
+}
+
+/* Make the warning tooltip slightly wider */
+.inputContainerEssay .tooltip {
+  width: 320px;
+}
+
+/* Additional styling for the essay text container */
+.inputContainerEssay .titleLabelContainer {
+  margin-bottom: var(--space-sm);
+}
+
+/* Generate button container */
+.inputActions {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+}
+
+/* Form elements */
+.inputLabel {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: black;
+  margin-bottom: 1rem;
+  display: inline-flex;
+  margin-top: 1.0rem;
+}
+
+.titleInput {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.titleInput:focus {
+  border-color: var(--purple-text);
+  box-shadow: 0 0 0 2px var(--purple-light);
+}
+
+.essayInput {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  padding: 10px 12px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  font-size: 16px;
+  resize: none !important;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+  overflow-y: auto !important; /* Enable scrolling */
+}
+
+.essayInput:focus {
+  border-color: var(--purple-text);
+  box-shadow: 0 0 0 2px var(--purple-light);
+}
+
+/* Generate button */
+.generateButton {
+  background-color: var(--purple-text);
+  color: white;
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;        /* Make button fill the container width */
+  max-width: 250px;   /* Controlled maximum width */
+}
+
+.generateButton:hover:not(:disabled) {
+  background-color: #7c3aed; /* Darker purple */
+}
+
+.generateButton:disabled {
+  background-color: var(--gray-200);
+  cursor: not-allowed;
+}
+
+.generating {
+  background-color: var(--gray-400);
+  cursor: wait;
+}
+
+/* ==========================================
+   6. OUTPUT SECTION (RIGHT COLUMN)
+   ========================================== */
+
+.outputSection {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.outputContainer {
+  background-color: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+}
+
+/* Feedback header with title and category pulldown + Speak/Download buttons */
+.outputHeader {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--purple-light);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.outputTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--purple-text);
+  margin: 0;
+}
+
+/* ─── STYLE THE CATEGORY <select> TO MATCH HEIGHT, BUT WITH WHITE BACKGROUND ─── */
+
+/* Wraps around the <select> so it can be aligned with the other buttons */
+.categorySelectWrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* Make the <select> exactly the same height as Speak/Download, but white */
+.categorySelect {
+  /* White background */
+  background: white url("data:image/svg+xml;utf8,\
+    <svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%236b7280' d='M0 0l5 6 5-6z'/></svg>") no-repeat right 12px center;
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+  font-size: 14px;
+  cursor: pointer;
+  height: 36px;     /* match Speak/Download height */
+  appearance: none; /* remove native arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* On focus, give it a subtle ring like other inputs */
+.categorySelect:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--purple-light);
+}
+
+/* ==========================================
+   Feedback content area
+   ========================================== */
+
+.feedbackOutput {
+  padding: var(--space-sm); 
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.feedbackContent {
+  font-family: inherit;
+  white-space: pre-wrap; 
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-wrap: break-word; /* Ensure long words wrap */
+}
+
+/* Placeholder shown when no feedback is generated yet */
+.feedbackPlaceholder {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--gray-400);
+  text-align: center;
+}
+
+.placeholderIcon {
+  font-size: 48px;
+  margin-bottom: var(--space-lg);
+}
+
+.placeholderText {
+  font-size: 16px;
+  max-width: 300px;
+}
+
+/* Loading state styles */
+.loadingContainer {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding: 20px; 
+}
+
+.loadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(139, 92, 246, 0.2); /* Light purple border */
+  border-radius: 50%;
+  border-top-color: var(--purple-text); /* Purple top border for the spinner effect */
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loadingMessage {
+  max-width: 400px;
+}
+
+.loadingTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--purple-text);
+  margin-bottom: 12px;
+}
+
+.loadingDetails {
+  font-size: 14px;
+  color: var(--gray-600);
+  margin-bottom: 8px;
+}
+
+.loadingWarning {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-700);
+  margin-top: 16px;
+}
+
+/* Speak button styles */
+.speakButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background-color: var(--gray-600);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  height: 36px;      /* match pulldown height */
+}
+
+.speakButton:hover {
+  background-color: var(--gray-700);
+}
+
+.speakButton:disabled {
+  background-color: var(--gray-400);
+  cursor: not-allowed;
+}
+
+.speakIcon {
+  font-size: 16px;
+}
+
+/* Download button styles */
+.downloadButton {
+  background-color: var(--gray-600);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  height: 36px;      /* match pulldown height */
+}
+
+.downloadButton:hover {
+  background-color: var(--gray-700);
+}
+
+/* ───────── Category Tab Buttons (unused if using <select>) ───────── */
+.categoryTabs {
+  display: flex;
+  gap: 8px;            /* space between each tab */
+  margin-bottom: 12px; /* give some breathing room under the tabs */
+}
+
+/* Inactive tab style */
+.tabButtonInactive {
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding-top: 8px;
+  padding-bottom: 6px;
+  padding-left: 14px;
+  padding-right: 14px;
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.tabButtonInactive:hover {
+  background-color: #e5e7eb;
+}
+
+/* Active tab style */
+.tabButtonActive {
+  background-color: #2563eb; /* blue accent */
+  border: 1px solid #1e40af;
+  border-radius: 4px;
+  padding-top: 8px;
+  padding-bottom: 6px;
+  padding-left: 14px;
+  padding-right: 14px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ==========================================
+   7. DOWNLOAD FUNCTIONALITY
+   ========================================== */
+
+.downloadContainer {
+  position: relative;
+}
+
+/* Dropdown menu for download options */
+.downloadDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: var(--space-xs);
+  background-color: white;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 220px;
+  z-index: 10;
+  overflow: hidden;
+  animation: dropdownAppear 0.2s ease-out;
+}
+
+@keyframes dropdownAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Individual download option buttons */
+.downloadOption {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  border: none;
+  background-color: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 14px;
+}
+
+.downloadOption:hover {
+  background-color: #f3f4f6;
+}
+
+.downloadOption:not(:last-child) {
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.downloadIcon {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+/* ==========================================
+   8. ERROR STATES
+   ========================================== */
+
+.errorMessage {
+  display: flex;
+  align-items: flex-start;
+  background-color: var(--red-100);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  color: var(--red-700);
+}
+
+.errorIcon {
+  font-size: 24px;
+  margin-right: var(--space-md);
+  flex-shrink: 0;
+}

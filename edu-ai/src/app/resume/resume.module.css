@@ -1,0 +1,545 @@
+/* 
+ * RESUME FEEDBACK PAGE STYLES
+ * 
+ * This stylesheet contains styles for the Resume Feedback page,
+ * organized to match the essay feedback design.
+ */
+
+/* ==========================================
+   1. VARIABLES & BASE STYLES
+   ========================================== */
+
+:root {
+  /* Color palette */
+  --yellow-primary: #fcd34d;
+  --yellow-light: #fef3c7;
+  --yellow-dark: #f59e0b;
+  --blue-light: #dbeafe;
+  --purple-light: #ede9fe;
+  --purple-text: #8b5cf6;
+  
+  /* Neutral colors */
+  --gray-100: #f9fafb;
+  --gray-200: #e5e7eb;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  
+  /* Error colors */
+  --red-100: #fee2e2;
+  --red-700: #b91c1c;
+  
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
+
+/* ==========================================
+   2. BANNER STYLES
+   ========================================== */
+
+.banner {
+  background-color: var(--yellow-primary);
+  padding: var(--space-lg) 0;
+}
+
+.bannerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.bannerTitle {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+
+/* ==========================================
+   3. MAIN LAYOUT STRUCTURE
+   ========================================== */
+
+.resumePage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--gray-100);
+}
+
+.mainContainer {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* ==========================================
+   4. LEFT PANEL - RESUME BUILDER
+   ========================================== */
+
+.leftPanel {
+  width: 40%;
+  padding: var(--space-xl);
+  border-right: 1px solid var(--gray-200);
+  height: 100vh;
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  font-size: 16px;
+}
+
+.sectionTitle {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: var(--space-lg);
+  color: var(--gray-700);
+}
+
+.inputField {
+  width: 100%;
+  padding: var(--space-md);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  margin-bottom: var(--space-md);
+  box-sizing: border-box;
+}
+
+.inputField:focus {
+  outline: none;
+  border-color: var(--purple-text);
+  box-shadow: 0 0 0 2px var(--purple-light);
+}
+
+.textareaField {
+  width: 100%;
+  padding: var(--space-md);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  margin-bottom: var(--space-md);
+  min-height: 80px;
+  resize: vertical;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.textareaField:focus {
+  outline: none;
+  border-color: var(--purple-text);
+  box-shadow: 0 0 0 2px var(--purple-light);
+}
+
+.activityCard {
+  border: 1px solid var(--gray-200);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-lg);
+  background-color: var(--gray-100);
+  font-size: 16px;
+}
+
+.activityHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.removeButton {
+  color: var(--red-700);
+  font-size: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs);
+}
+
+.removeButton:hover {
+  text-decoration: underline;
+}
+
+.addButton {
+  background-color: var(--gray-200);
+  color: var(--gray-700);
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: var(--space-lg);
+}
+
+.addButton:hover {
+  background-color: var(--gray-300);
+}
+
+.actionButtons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.downloadButton {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.downloadButton:hover {
+  background-color: #1d4ed8;
+}
+
+.generateButton {
+  background-color: var(--purple-text);
+  color: white;
+  border: none;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.generateButton:hover:not(:disabled) {
+  background-color: #7c3aed;
+}
+
+.generateButton:disabled {
+  background-color: var(--gray-400);
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   5. RIGHT PANEL - PREVIEW & FEEDBACK
+   ========================================== */
+
+.rightPanel {
+  flex: 1;
+  padding: var(--space-xl);
+  overflow-y: auto;
+  background-color: white;
+  font-size: 16px;
+}
+
+.tabContainer {
+  display: flex;
+  margin-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.tabButton {
+  padding: var(--space-md) var(--space-lg);
+  font-weight: 600;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 16px;
+}
+
+.tabButton:hover {
+  color: var(--gray-700);
+}
+
+.tabButton.active {
+  color: var(--purple-text);
+  border-bottom-color: var(--purple-text);
+}
+
+/* ==========================================
+   6. FEEDBACK SECTION
+   ========================================== */
+
+.feedbackContainer {
+  background-color: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.feedbackHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg);
+  background-color: var(--purple-light);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.feedbackTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--purple-text);
+  margin: 0;
+}
+
+.feedbackActions {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.categorySelect {
+  background: white;
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 0 var(--space-lg);
+  font-size: 14px;
+  cursor: pointer;
+  height: 36px;
+}
+
+.categorySelect:focus {
+  outline: none;
+  border-color: var(--purple-text);
+}
+
+.speakButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background-color: var(--gray-600);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0 var(--space-lg);
+  font-size: 14px;
+  cursor: pointer;
+  height: 36px;
+  transition: background-color 0.2s;
+}
+
+.speakButton:hover:not(:disabled) {
+  background-color: var(--gray-700);
+}
+
+.speakButton:disabled {
+  background-color: var(--gray-400);
+  cursor: not-allowed;
+}
+
+.speakIcon {
+  font-size: 16px;
+}
+
+.feedbackContent {
+  padding: var(--space-lg);
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.feedbackText {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  color: var(--gray-700);
+  font-size: 14px;
+}
+
+.loadingMessage {
+  text-align: center;
+  color: var(--gray-500);
+  padding: var(--space-xl);
+}
+
+.errorMessage {
+  color: var(--red-700);
+  padding: var(--space-md);
+  background-color: var(--red-100);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+}
+
+.placeholderMessage {
+  text-align: center;
+  color: var(--gray-400);
+  padding: var(--space-xl);
+  font-style: italic;
+}
+
+/* ==========================================
+   7. PREVIEW SECTION
+   ========================================== */
+
+.previewContainer {
+  background: white;
+  max-width: 700px;
+  margin: 32px auto;
+  padding: 40px 48px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
+  color: #222;
+  border: 1px solid #e5e7eb;
+  line-height: 1.5;                  
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.previewHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.previewName {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 2px;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.previewContact {
+  font-size: 17px;
+  color: #444;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.previewDivider {
+  border: none;
+  border-top: 1.5px solid #bbb;
+  margin: 12px 0 18px 0;
+}
+
+.previewSection {
+  margin-bottom: 18px;
+}
+
+.previewSectionTitle {
+  font-size: 17px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #111;
+  margin-bottom: 6px;
+  margin-top: 12px;
+  text-align: left;
+}
+
+.previewActivity {
+  margin-bottom: 10px;
+}
+
+.previewActivityHeader {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.previewActivityTitle {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.previewActivityMeta {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 2px;
+}
+
+.previewBulletList {
+  list-style-type: disc;
+  padding-left: 28px;
+  margin: 2px 0 0 0;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #333;
+}
+
+.previewBullet {
+  margin-bottom: 0px;
+}
+
+.previewGrades {
+  font-size: 14px;
+  color: #666;
+  margin-top: 2px;
+}
+
+.eduRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.eduLeft {
+  flex: 1 1 60%;
+  min-width: 0;
+}
+
+.eduRight {
+  flex: 1 1 35%;
+  min-width: 0;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.expRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2px;
+}
+
+.expLeft {
+  flex: 1 1 60%;
+  min-width: 0;
+}
+
+.expRight {
+  flex: 1 1 35%;
+  min-width: 0;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.expOrg {
+  font-size: 17px;
+  color: #444;
+  margin-top: 2px;
+}
+
+.expLoc {
+  font-size: 17px;
+  color: #444;
+  font-style: italic;
+  margin-top: 2px;
+} 

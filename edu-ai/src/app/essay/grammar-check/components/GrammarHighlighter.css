@@ -1,0 +1,241 @@
+/* components/GrammarHighlighter.css */
+.grammar-editor-wrapper {
+  position: relative;
+  height: 100%;
+  min-height: 300px;
+  width: 100%;
+}
+
+.grammar-textarea {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 16px;
+  resize: vertical;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+  background-color: transparent;
+  caret-color: black;
+  position: relative;
+  
+}
+
+.grammar-textarea:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 2px #ede9fe;
+}
+
+.grammar-highlight-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  /* The magic part: keep most of it unclickable, but allow .grammar-error to receive clicks */
+  pointer-events: none;
+  white-space: pre-wrap;
+  overflow: auto;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  color: transparent;
+  z-index: 2;
+}
+
+.grammar-error {
+  text-decoration: underline wavy #e53e3e;
+  background-color: rgba(229, 62, 62, 0.1);
+  color: transparent;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  /* This is the key part: allow clicks on the errors, even though the parent doesn't receive clicks */
+  pointer-events: auto;
+}
+
+.grammar-error:hover {
+  background-color: rgba(229, 62, 62, 0.2);
+}
+
+.grammar-checking-indicator {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  font-size: 12px;
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.grammar-error-indicator {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  font-size: 12px;
+  color: #e53e3e;
+  font-style: italic;
+}
+
+/* Popup styling */
+.grammar-error-popup {
+  position: absolute;
+  z-index: 20;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 12px;
+  min-width: 250px;
+  max-width: 300px;
+  border: 1px solid #e5e7eb;
+}
+
+.popup-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.popup-close-btn:hover {
+  background-color: #f3f4f6;
+}
+
+.popup-word {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #e53e3e;
+}
+
+.popup-reason, .popup-suggestion {
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.popup-label {
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.popup-apply-btn {
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 8px;
+  transition: background-color 0.2s;
+}
+
+.popup-apply-btn:hover {
+  background-color: #7c3aed;
+}
+
+.popup-suggestion span {
+  color: #059669;
+  font-weight: 500;
+}
+
+/* Regular word styling */
+.clickable-word {
+  cursor: pointer;
+  pointer-events: auto;
+  position: relative;
+  display: inline-block;
+}
+
+.clickable-word:hover {
+  background-color: rgba(139, 92, 246, 0.1);
+  border-radius: 2px;
+}
+
+/* Word popup styling */
+.word-popup {
+  position: absolute;
+  z-index: 20;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 12px;
+  min-width: 200px;
+  max-width: 250px;
+  border: 1px solid #e5e7eb;
+}
+
+.word-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.word-action-btn {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-align: left;
+}
+
+.word-action-btn:hover {
+  background-color: #e5e7eb;
+}
+
+/* Add these styles to GrammarHighlighter.css */
+
+.correction-text {
+  color: #059669;
+  font-weight: 500;
+}
+
+.corrected-text-indicator {
+  position: absolute;
+  top: -35px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.apply-all-corrections-btn {
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.apply-all-corrections-btn:hover {
+  background-color: #7c3aed;
+}
