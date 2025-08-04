@@ -9,39 +9,7 @@
    1. VARIABLES & BASE STYLES
    ========================================== */
 
-:root {
-  /* Color palette */
-  --yellow-primary: #fcd34d;
-  --yellow-light: #fef3c7;
-  --yellow-dark: #f59e0b;
-  --blue-light: #dbeafe;
-  --purple-light: #ede9fe;
-  --purple-text: #8b5cf6;
-  
-  /* Neutral colors */
-  --gray-100: #f9fafb;
-  --gray-200: #e5e7eb;
-  --gray-400: #9ca3af;
-  --gray-500: #6b7280;
-  --gray-600: #4b5563;
-  --gray-700: #374151;
-  
-  /* Error colors */
-  --red-100: #fee2e2;
-  --red-700: #b91c1c;
-  
-  /* Spacing */
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 12px;
-  --space-lg: 16px;
-  --space-xl: 24px;
-  
-  /* Border radius */
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 8px;
-}
+
 
 /* ==========================================
    2. BANNER STYLES
