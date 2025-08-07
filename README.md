@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Empowering Education
 
-## Getting Started
+Empowering Education services are a set of tools that help high‑school counselors bridge knowledge gaps for students in the college application process. It provides AI‑assisted essay feedback, an interactive resume builder with targeted guidance, and a school information explorer with accessible data visualizations.
 
-First, run the development server:
+This application is being adopted for use across the Durham Public School System to support counselors working with low‑income and first‑generation students, helping them access clear information, receive actionable feedback, and make informed post‑secondary decisions.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Key Capabilities
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **AI Essay Feedback**: Generate structured, actionable feedback by category (Overview, Grammar, Structure, Content, Language). Includes optional grammar highlighting and the ability to download feedback for offline review.
+- **Interactive Resume Builder**: Build a student resume and receive AI feedback focused on clarity, impact, content, and structure. Supports category‑based review and printing/saving.
+- **School Information Explorer**: Search schools, compare options, and view visualizations (cost after aid, demographics, earnings) with CSV ingestion and charting.
+- **Accessibility & Usability**: Speech synthesis on key feedback views, responsive UI, and clear flows designed with counselors and students in mind.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Screens and Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `"/"` — Services landing (Essay, Résumé, School Info)
+- `"/essay"` — Essay feedback and grammar review
+- `"/resume"` — Resume builder with AI feedback
+- `"/school_info"` — School information explorer and comparisons
 
-## Learn More
+## Architecture Overview
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Framework**: Next.js 15 (App Router) with TypeScript and React 19
+- **AI Integration**: OpenAI API for essay and résumé feedback
+- **Charts & Data**: Chart.js / react‑chartjs‑2 and PapaParse for CSV parsing
+- **Styling**: CSS Modules and Tailwind CSS (via @tailwindcss/postcss)
+- **Deployment**: Netlify with Next.js plugin
